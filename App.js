@@ -5,15 +5,16 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ScrollView,
   Alert,
   Animated,
-  Image
+  ScrollView,
 } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 import * as Location from 'expo-location';
+
 import GoalsApp from './components/GoalsApp';
 import WeatherApp from './components/WeatherApp';
+import CocktailsApp from './components/CocktailsApp';
 import AnimatedBackground from './components/AnimatedBackground';
 
 const API_KEY = '0477eeed5a4fba4055ecc65727d11946';
@@ -26,6 +27,7 @@ const themes = {
     surface: '#1E1E1E',
     primary: '#1E88E5',
     secondary: '#FB8C00',
+    green: '#42df1c',
     text: '#FFFFFF',
     textReverse: '#1E1E1E',
     textSecondary: '#AAAAAA',
@@ -38,6 +40,7 @@ const themes = {
     surface: '#FFFFFF',
     primary: '#1976D2',
     secondary: '#F57C00',
+    green: '#42df1c',
     text: '#1E1E1E', 
     textReverse: '#FFFFFF',
     textSecondary: '#666666',
@@ -56,7 +59,8 @@ export default function App() {
 
   const scaleAnims = {
     goals: new Animated.Value(1),
-    weather: new Animated.Value(1)
+    weather: new Animated.Value(1),
+    cocktails: new Animated.Value(1)
   };
 
   const fetchWeather = async () => {
@@ -188,6 +192,9 @@ export default function App() {
         />
       );
     }
+    if (currentApp === 'cocktails') {
+      return <CocktailsApp onBack={() => setCurrentApp(null)} theme={theme} />;
+    }
 
     return (
       <ScrollView style={styles.mainContent}>
@@ -206,6 +213,13 @@ export default function App() {
             color={theme.secondary}
             animKey="weather"
             onPress={() => setCurrentApp('weather')}
+          />
+          <AppIcon
+          title="Cocktails"
+          icon="local-bar"
+          color={theme.green}
+          animKey="cocktails"
+          onPress={() => setCurrentApp('cocktails')}
           />
         </View>
       </ScrollView>
