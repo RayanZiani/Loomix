@@ -13,7 +13,7 @@
    ```bash
    npx expo install react-dom react-native-web @expo/webpack-config
    ```
-    . (optional) to run the project on expo, instal Expo Go on your iphone then do this command a scan the QR code
+    4. (optional) to run the project on expo, instal Expo Go on your iphone then do this command a scan the QR code
         ```bash
         npx expo start --tunnel
         ```
