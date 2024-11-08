@@ -4,11 +4,9 @@ import {
   Text,
   View,
   TouchableOpacity,
-  ActivityIndicator,
   RefreshControl,
   ScrollView,
   Animated,
-  LayoutAnimation,
   Platform,
   UIManager,
 } from 'react-native';
